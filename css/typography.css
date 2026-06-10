@@ -1,0 +1,207 @@
+/* Typography Styles */
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  line-height: 1.7;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+h1 {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: var(--text-xl);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: var(--space-md);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Text Utilities */
+.text-xs {
+  font-size: var(--text-xs);
+  line-height: 1.4;
+}
+
+.text-sm {
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.text-base {
+  font-size: var(--text-base);
+  line-height: 1.7;
+}
+
+.text-md {
+  font-size: var(--text-md);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.text-lg {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+strong {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Formula Display */
+.formula {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  background: var(--color-surface-2);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  color: var(--color-text-primary);
+  cursor: default;
+}
+
+.formula-block {
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  background: var(--color-surface-2);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  margin: var(--space-md) 0;
+  text-align: center;
+  position: relative;
+  border: 1px solid var(--color-border);
+}
+
+.formula-block code {
+  color: var(--color-text-primary);
+}
+
+.btn-copy {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+  opacity: 0.6;
+}
+
+.btn-copy:hover {
+  opacity: 1;
+  background: var(--color-primary);
+  color: white;
+}
+
+/* Lists */
+.list-styled {
+  list-style: disc;
+  margin-left: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.list-styled li {
+  margin-bottom: var(--space-sm);
+  padding-left: var(--space-xs);
+}
+
+.list-unstyled {
+  list-style: none;
+  margin-left: 0;
+}
+
+.list-unstyled li {
+  margin-bottom: var(--space-sm);
+}
+
+/* Section Titles */
+.section__title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-primary);
+}
+
+.section__intro {
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+}
+
+.subsection__title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+  color: var(--color-text-primary);
+}
+
+/* Summary List */
+.summary-list {
+  counter-reset: summary;
+  list-style: none;
+}
+
+.summary-list li {
+  counter-increment: summary;
+  position: relative;
+  padding-left: var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.summary-list li::before {
+  content: counter(summary);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 28px;
+  height: 28px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
