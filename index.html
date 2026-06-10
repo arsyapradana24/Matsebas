@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website edukasi interaktif untuk mempelajari konsep Fungsi Invers dengan visualisasi grafik dan latihan soal">
+  <title>Fungsi Invers - Belajar Matematika Interaktif</title>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/reset.css?v=2.0.0">
+  <link rel="stylesheet" href="./css/variables.css?v=2.0.0">
+  <link rel="stylesheet" href="./css/typography.css?v=2.0.0">
+  <link rel="stylesheet" href="./css/layout.css?v=2.0.0">
+  <link rel="stylesheet" href="./css/components.css?v=2.0.0">
+  <link rel="stylesheet" href="./css/animations.css?v=2.0.0">
+  
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  
+  <!-- Topbar -->
+  <header class="topbar" role="banner">
+    <div class="topbar__content">
+      <div class="topbar__left">
+        <svg class="topbar__logo" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 2L4 8v12c0 7.5 5.2 14.5 12 16.3 6.8-1.8 12-8.8 12-16.3V8L16 2z" fill="currentColor" opacity="0.2"/>
+          <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="16" font-weight="700" fill="currentColor">f⁻¹</text>
+        </svg>
+        <h1 class="topbar__title">Fungsi Invers</h1>
+      </div>
+      
+      <div class="topbar__right">
+        <button class="btn-icon" id="btn-theme-toggle" aria-label="Toggle dark/light mode">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path class="theme-icon-sun" d="M10 3V1M10 19v-2M17 10h2M1 10h2M15.66 4.34l1.41-1.41M2.93 17.07l1.41-1.41M15.66 15.66l1.41 1.41M2.93 2.93l1.41 1.41M14 10a4 4 0 11-8 0 4 4 0 018 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="btn-icon btn-hamburger" id="btn-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="layout">
+    
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar" role="navigation" aria-label="Navigasi utama">
+      
+      <ul class="sidebar__menu">
+        <li><a href="#hero" class="sidebar__link active" data-section="hero">
+          <span class="sidebar__number">0</span>
+          <span class="sidebar__label">Beranda</span>
+        </a></li>
+        <li><a href="#definisi" class="sidebar__link" data-section="definisi">
+          <span class="sidebar__number">1</span>
+          <span class="sidebar__label">Definisi</span>
+        </a></li>
+        <li><a href="#syarat" class="sidebar__link" data-section="syarat">
+          <span class="sidebar__number">2</span>
+          <span class="sidebar__label">Syarat</span>
+        </a></li>
+        <li><a href="#cara" class="sidebar__link" data-section="cara">
+          <span class="sidebar__number">3</span>
+          <span class="sidebar__label">Cara Mencari</span>
+        </a></li>
+        <li><a href="#contoh" class="sidebar__link" data-section="contoh">
+          <span class="sidebar__number">4</span>
+          <span class="sidebar__label">Contoh Soal</span>
+        </a></li>
+        <li><a href="#grafik" class="sidebar__link" data-section="grafik">
+          <span class="sidebar__number">5</span>
+          <span class="sidebar__label">Grafik</span>
+        </a></li>
+        <li><a href="#sifat" class="sidebar__link" data-section="sifat">
+          <span class="sidebar__number">6</span>
+          <span class="sidebar__label">Sifat-Sifat</span>
+        </a></li>
+        <li><a href="#komposisi" class="sidebar__link" data-section="komposisi">
+          <span class="sidebar__number">7</span>
+          <span class="sidebar__label">Komposisi</span>
+        </a></li>
+        <li><a href="#fungsi-khusus" class="sidebar__link" data-section="fungsi-khusus">
+          <span class="sidebar__number">8</span>
+          <span class="sidebar__label">Fungsi Khusus</span>
+        </a></li>
+        <li><a href="#latihan" class="sidebar__link" data-section="latihan">
+          <span class="sidebar__number">9</span>
+          <span class="sidebar__label">Latihan Soal</span>
+        </a></li>
+        <li><a href="#rangkuman" class="sidebar__link" data-section="rangkuman">
+          <span class="sidebar__number">10</span>
+          <span class="sidebar__label">Rangkuman</span>
+        </a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content" role="main">
+
+      <!-- Hero Section -->
+      <section id="hero" class="section section--hero" data-section="hero">
+        <div class="hero">
+          <h2 class="hero__title">Belajar Fungsi Invers</h2>
+          <p class="hero__subtitle">Pahami konsep fungsi invers melalui materi terstruktur, visualisasi grafik interaktif, dan latihan soal dengan feedback instan.</p>
+          <div class="hero__features">
+            <div class="feature-card">
+              <div class="feature-card__icon">📚</div>
+              <h3 class="feature-card__title">Materi Lengkap</h3>
+              <p class="feature-card__desc">10 section materi dari dasar hingga mahir</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-card__icon">📊</div>
+              <h3 class="feature-card__title">Visualisasi Grafik</h3>
+              <p class="feature-card__desc">Grafik interaktif dengan Canvas API</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-card__icon">✍️</div>
+              <h3 class="feature-card__title">30+ Soal Latihan</h3>
+              <p class="feature-card__desc">Soal bertingkat dengan pembahasan detail</p>
+            </div>
+          </div>
+          <div class="hero__cta">
+            <a href="#definisi" class="btn btn--primary btn--lg">Mulai Belajar →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Definisi Section -->
+      <section id="definisi" class="section" data-section="definisi">
+        <h2 class="section__title">Pengertian Fungsi Invers</h2>
+        
+        <div class="card card--accent">
+          <h3 class="card__title">Definisi</h3>
+          <p>Misalkan fungsi <span class="formula">f: A → B</span> dengan <span class="formula">f(a) = b</span>. <strong>Fungsi invers</strong> dari <span class="formula">f</span>, dilambangkan dengan <span class="formula">f⁻¹</span>, adalah fungsi dari <span class="formula">B</span> ke <span class="formula">A</span> yang memenuhi <span class="formula">f⁻¹(b) = a</span>.</p>
+        </div>
+
+        <div class="highlight highlight--info">
+          <span class="highlight__icon">💡</span>
+          <p><strong>Intuitif:</strong> Fungsi invers "membalik" pasangan berurutan. Jika <span class="formula">f</span> memetakan <span class="formula">(x, y)</span>, maka <span class="formula">f⁻¹</span> memetakan <span class="formula">(y, x)</span>.</p>
+        </div>
+
+        <h3 class="subsection__title">Notasi Penting</h3>
+        <div class="card card--code">
+          <div class="formula-block">
+            <code>f⁻¹(x) ≠ 1/f(x)</code>
+            <button class="btn-copy" aria-label="Salin formula" data-copy="f⁻¹(x) ≠ 1/f(x)">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <rect x="5" y="5" width="9" height="9" stroke="currentColor" stroke-width="1.5" rx="1"/>
+                <path d="M3 11V3a2 2 0 012-2h6" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </button>
+          </div>
+          <p class="text-muted">Notasi f⁻¹ berarti invers fungsi, BUKAN 1 dibagi f(x)</p>
+        </div>
+
+        <h3 class="subsection__title">Contoh Sederhana</h3>
+        <div class="card">
+          <p><strong>Diberikan:</strong></p>
+          <p>Fungsi <span class="formula">f = {(1,2), (2,4), (3,6), (4,8)}</span></p>
+          <p><strong>Maka:</strong></p>
+          <p>Fungsi invers <span class="formula">f⁻¹ = {(2,1), (4,2), (6,3), (8,4)}</span></p>
+          <div class="highlight highlight--success" style="margin-top: var(--space-md)">
+            <span class="highlight__icon">✓</span>
+            <p>Perhatikan bahwa setiap pasangan (x,y) di f menjadi (y,x) di f⁻¹</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Syarat Section -->
+      <section id="syarat" class="section" data-section="syarat">
+        <h2 class="section__title">Syarat Fungsi Memiliki Invers</h2>
+        
+        <div class="card card--accent">
+          <p><strong>Syarat utama:</strong> Suatu fungsi memiliki invers jika dan hanya jika fungsi tersebut <strong>bijektif</strong> (one-to-one dan onto).</p>
+        </div>
+
+        <h3 class="subsection__title">1. Injektif (One-to-One)</h3>
+        <div class="card">
+          <p><strong>Definisi:</strong> Fungsi <span class="formula">f</span> disebut injektif jika untuk setiap <span class="formula">x₁, x₂ ∈ A</span>:</p>
+          <div class="formula-block">
+            <code>f(x₁) = f(x₂) ⟹ x₁ = x₂</code>
+          </div>
+          <p class="text-muted">Artinya: Setiap elemen kodomain maksimal dipetakan oleh satu elemen domain.</p>
+        </div>
+
+        <h3 class="subsection__title">2. Surjektif (Onto)</h3>
+        <div class="card">
+          <p><strong>Definisi:</strong> Fungsi <span class="formula">f: A → B</span> disebut surjektif jika untuk setiap <span class="formula">b ∈ B</span>, ada <span class="formula">a ∈ A</span> sehingga <span class="formula">f(a) = b</span>.</p>
+          <div class="formula-block">
+            <code>Range(f) = Kodomain(f)</code>
+          </div>
+          <p class="text-muted">Artinya: Semua elemen kodomain terpetakan.</p>
+        </div>
+
+        <h3 class="subsection__title">3. Bijektif (One-to-One dan Onto)</h3>
+        <div class="card">
+          <p>Fungsi <span class="formula">f</span> disebut <strong>bijektif</strong> jika <span class="formula">f</span> injektif sekaligus surjektif.</p>
+          <div class="highlight highlight--warning">
+            <span class="highlight__icon">⚠️</span>
+            <p><strong>Hanya fungsi bijektif yang memiliki invers!</strong></p>
+          </div>
+        </div>
+
+        <h3 class="subsection__title">Horizontal Line Test</h3>
+        <div class="card">
+          <p><strong>Uji visual untuk injektif:</strong></p>
+          <p>Fungsi <span class="formula">f</span> injektif jika dan hanya jika setiap garis horizontal memotong grafik <span class="formula">f</span> maksimal di satu titik.</p>
+          <div class="test-visual">
+            <div class="test-example">
+              <div class="test-example__graph test-example__graph--pass">
+                <svg width="140" height="100" viewBox="0 0 140 100">
+                  <line x1="10" y1="50" x2="130" y2="50" stroke="var(--color-border-strong)" stroke-width="1" stroke-dasharray="4"/>
+                  <path d="M 10 80 Q 70 10, 130 20" stroke="var(--color-graph-f)" stroke-width="2" fill="none"/>
+                  <circle cx="70" cy="30" r="3" fill="var(--color-danger)"/>
+                  <line x1="0" y1="100" x2="0" y2="0" stroke="var(--color-graph-axis)" stroke-width="1.5"/>
+                  <line x1="0" y1="100" x2="140" y2="100" stroke="var(--color-graph-axis)" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <p class="test-example__label"><span class="badge badge--success">✓ Injektif</span></p>
+              <p class="text-sm text-muted">Garis horizontal memotong 1 titik</p>
+            </div>
+            <div class="test-example">
+              <div class="test-example__graph test-example__graph--fail">
+                <svg width="140" height="100" viewBox="0 0 140 100">
+                  <line x1="10" y1="50" x2="130" y2="50" stroke="var(--color-border-strong)" stroke-width="1" stroke-dasharray="4"/>
+                  <path d="M 10 80 Q 50 10, 70 50 T 130 20" stroke="var(--color-graph-f)" stroke-width="2" fill="none"/>
+                  <circle cx="42" cy="47" r="3" fill="var(--color-danger)"/>
+                  <circle cx="98" cy="47" r="3" fill="var(--color-danger)"/>
+                  <line x1="0" y1="100" x2="0" y2="0" stroke="var(--color-graph-axis)" stroke-width="1.5"/>
+                  <line x1="0" y1="100" x2="140" y2="100" stroke="var(--color-graph-axis)" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <p class="test-example__label"><span class="badge badge--danger">✗ Tidak Injektif</span></p>
+              <p class="text-sm text-muted">Garis horizontal memotong >1 titik</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="subsection__title">Contoh: Fungsi Tanpa Invers</h3>
+        <div class="card">
+          <p><strong>Fungsi:</strong> <span class="formula">f(x) = x²</span> untuk <span class="formula">x ∈ ℝ</span></p>
+          <p><strong>Mengapa tidak memiliki invers?</strong></p>
+          <ul class="list-styled">
+            <li><span class="formula">f(-2) = 4</span> dan <span class="formula">f(2) = 4</span></li>
+            <li>Fungsi ini tidak injektif (tidak one-to-one)</li>
+            <li>Untuk <span class="formula">f⁻¹(4)</span>, tidak jelas apakah hasilnya -2 atau 2</li>
+          </ul>
+          <div class="highlight highlight--info" style="margin-top: var(--space-md)">
+            <span class="highlight__icon">💡</span>
+            <p><strong>Solusi:</strong> Batasi domain menjadi <span class="formula">x ≥ 0</span>, maka fungsi menjadi bijektif dan memiliki invers <span class="formula">f⁻¹(x) = √x</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cara Menentukan Section -->
+      <section id="cara" class="section" data-section="cara">
+        <h2 class="section__title">Cara Menentukan Fungsi Invers</h2>
+        
+        <p class="section__intro">Berikut adalah langkah-langkah sistematis untuk menentukan fungsi invers:</p>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step__number">1</span>
+            <div class="step__content">
+              <p class="step__title">Tulis y = f(x)</p>
+              <p class="step__desc">Nyatakan fungsi dalam bentuk persamaan dengan y sebagai variabel terikat.</p>
+              <div class="step__example">
+                <span class="text-muted">Contoh:</span> <span class="formula">f(x) = 2x + 3</span> → <span class="formula">y = 2x + 3</span>
+              </div>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__number">2</span>
+            <div class="step__content">
+              <p class="step__title">Tukar posisi x dan y</p>
+              <p class="step__desc">Ubah semua x menjadi y dan semua y menjadi x.</p>
+              <div class="step__example">
+                <span class="formula">y = 2x + 3</span> → <span class="formula">x = 2y + 3</span>
+              </div>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__number">3</span>
+            <div class="step__content">
+              <p class="step__title">Selesaikan untuk y</p>
+              <p class="step__desc">Isolasi variabel y di satu sisi persamaan.</p>
+              <div class="step__example">
+                <span class="formula">x = 2y + 3</span> → <span class="formula">2y = x − 3</span> → <span class="formula">y = (x − 3)/2</span>
+              </div>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__number">4</span>
+            <div class="step__content">
+              <p class="step__title">Ganti y dengan f⁻¹(x)</p>
+              <p class="step__desc">Hasil y adalah fungsi invers yang dicari.</p>
+              <div class="step__example">
+                <span class="formula">f⁻¹(x) = (x − 3)/2</span>
+              </div>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__number">5</span>
+            <div class="step__content">
+              <p class="step__title">Verifikasi (opsional)</p>
+              <p class="step__desc">Periksa bahwa f(f⁻¹(x)) = x dan f⁻¹(f(x)) = x.</p>
+              <div class="step__example">
+                <span class="formula">f(f⁻¹(x)) = 2·((x−3)/2) + 3 = x − 3 + 3 = x</span> ✓
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Contoh Soal Section -->
+      <section id="contoh" class="section" data-section="contoh">
+        <h2 class="section__title">Contoh Soal Bertahap</h2>
+        
+        <div class="tabs" role="tablist">
+          <button class="tab" role="tab" data-tab="linear" aria-selected="true" aria-controls="tab-linear">Linear</button>
+          <button class="tab" role="tab" data-tab="pecahan" aria-selected="false" aria-controls="tab-pecahan">Pecahan</button>
+          <button class="tab" role="tab" data-tab="akar" aria-selected="false" aria-controls="tab-akar">Akar</button>
+          <button class="tab" role="tab" data-tab="kuadrat" aria-selected="false" aria-controls="tab-kuadrat">Kuadrat</button>
+        </div>
+
+        <!-- Tab Linear -->
+        <div class="tab-panel active" id="tab-linear" role="tabpanel" aria-labelledby="tab-linear">
+          <div class="card">
+            <h3 class="card__title">Contoh 1: Fungsi Linear</h3>
+            <p><strong>Soal:</strong> Tentukan invers dari <span class="formula">f(x) = 3x + 6</span></p>
+            
+            <div class="solution">
+              <p class="solution__label">Penyelesaian:</p>
+              <ol class="solution__steps">
+                <li>Tulis <span class="formula">y = 3x + 6</span></li>
+                <li>Tukar x dan y: <span class="formula">x = 3y + 6</span></li>
+                <li>Selesaikan untuk y:
+                  <div class="formula-block"><code>3y = x − 6</code></div>
+                  <div class="formula-block"><code>y = (x − 6)/3</code></div>
+                </li>
+                <li>Jadi: <span class="formula">f⁻¹(x) = (x − 6)/3</span></li>
+              </ol>
+              
+              <div class="verification">
+                <p class="verification__label">Verifikasi:</p>
+                <div class="formula-block">
+                  <code>f(f⁻¹(x)) = 3·((x−6)/3) + 6 = x − 6 + 6 = x</code> ✓
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Pecahan -->
+        <div class="tab-panel" id="tab-pecahan" role="tabpanel" aria-labelledby="tab-pecahan" hidden>
+          <div class="card">
+            <h3 class="card__title">Contoh 2: Fungsi Pecahan</h3>
+            <p><strong>Soal:</strong> Tentukan invers dari <span class="formula">f(x) = (2x + 1)/(x − 3)</span>, <span class="formula">x ≠ 3</span></p>
+            
+            <div class="solution">
+              <p class="solution__label">Penyelesaian:</p>
+              <ol class="solution__steps">
+                <li>Tulis <span class="formula">y = (2x + 1)/(x − 3)</span></li>
+                <li>Tukar x dan y: <span class="formula">x = (2y + 1)/(y − 3)</span></li>
+                <li>Selesaikan untuk y:
+                  <div class="formula-block"><code>x(y − 3) = 2y + 1</code></div>
+                  <div class="formula-block"><code>xy − 3x = 2y + 1</code></div>
+                  <div class="formula-block"><code>xy − 2y = 3x + 1</code></div>
+                  <div class="formula-block"><code>y(x − 2) = 3x + 1</code></div>
+                  <div class="formula-block"><code>y = (3x + 1)/(x − 2)</code></div>
+                </li>
+                <li>Jadi: <span class="formula">f⁻¹(x) = (3x + 1)/(x − 2)</span>, <span class="formula">x ≠ 2</span></li>
+              </ol>
+              
+              <div class="verification">
+                <p class="verification__label">Verifikasi:</p>
+                <div class="formula-block">
+                  <code>f(f⁻¹(x)) = (2·((3x+1)/(x−2)) + 1)/((3x+1)/(x−2) − 3)</code>
+                </div>
+                <div class="formula-block">
+                  <code>= ((6x+2+x−2)/(x−2))/((3x+1−3x+6)/(x−2)) = (7x/(x−2))/(7/(x−2)) = x</code> ✓
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Akar -->
+        <div class="tab-panel" id="tab-akar" role="tabpanel" aria-labelledby="tab-akar" hidden>
+          <div class="card">
+            <h3 class="card__title">Contoh 3: Fungsi Akar</h3>
+            <p><strong>Soal:</strong> Tentukan invers dari <span class="formula">f(x) = √(x − 2) + 3</span>, <span class="formula">x ≥ 2</span></p>
+            
+            <div class="solution">
+              <p class="solution__label">Penyelesaian:</p>
+              <ol class="solution__steps">
+                <li>Tulis <span class="formula">y = √(x − 2) + 3</span></li>
+                <li>Tukar x dan y: <span class="formula">x = √(y − 2) + 3</span></li>
+                <li>Selesaikan untuk y:
+                  <div class="formula-block"><code>x − 3 = √(y − 2)</code></div>
+                  <div class="formula-block"><code>(x − 3)² = y − 2</code></div>
+                  <div class="formula-block"><code>y = (x − 3)² + 2</code></div>
+                </li>
+                <li>Jadi: <span class="formula">f⁻¹(x) = (x − 3)² + 2</span>, <span class="formula">x ≥ 3</span></li>
+              </ol>
+              
+              <div class="highlight highlight--info">
+                <span class="highlight__icon">💡</span>
+                <p><strong>Catatan:</strong> Domain f⁻¹ adalah x ≥ 3 karena range dari f adalah y ≥ 3 (nilai minimum √(x−2) adalah 0 saat x=2, sehingga y minimum = 0+3 = 3).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Kuadrat -->
+        <div class="tab-panel" id="tab-kuadrat" role="tabpanel" aria-labelledby="tab-kuadrat" hidden>
+          <div class="card">
+            <h3 class="card__title">Contoh 4: Fungsi Kuadrat (dengan pembatasan)</h3>
+            <p><strong>Soal:</strong> Tentukan invers dari <span class="formula">f(x) = x²</span>, <span class="formula">x ≥ 0</span></p>
+            
+            <div class="solution">
+              <p class="solution__label">Penyelesaian:</p>
+              <ol class="solution__steps">
+                <li>Tulis <span class="formula">y = x²</span> dengan <span class="formula">x ≥ 0</span></li>
+                <li>Tukar x dan y: <span class="formula">x = y²</span></li>
+                <li>Selesaikan untuk y:
+                  <div class="formula-block"><code>y² = x</code></div>
+                  <div class="formula-block"><code>y = ±√x</code></div>
+                </li>
+                <li>Karena domain awal <span class="formula">x ≥ 0</span>, maka kita ambil akar positif:
+                  <div class="formula-block"><code>y = √x</code></div>
+                </li>
+                <li>Jadi: <span class="formula">f⁻¹(x) = √x</span>, <span class="formula">x ≥ 0</span></li>
+              </ol>
+              
+              <div class="highlight highlight--warning">
+                <span class="highlight__icon">⚠️</span>
+                <p><strong>Penting:</strong> Tanpa pembatasan domain x ≥ 0, fungsi f(x) = x² tidak memiliki invers karena tidak injektif!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grafik Section -->
+      <section id="grafik" class="section" data-section="grafik">
+        <h2 class="section__title">Visualisasi Grafik Interaktif</h2>
+        
+        <p class="section__intro">Eksplorasi hubungan antara fungsi f(x) dan inversnya f⁻¹(x) secara visual. Grafik f dan f⁻¹ selalu simetris terhadap garis y = x.</p>
+
+        <div class="grafik-container">
+          <div class="grafik-controls card">
+            <h3 class="card__title">Kontrol Grafik</h3>
+            
+            <div class="form-group">
+              <label for="preset-select" class="form-label">Pilih Fungsi:</label>
+              <select id="preset-select" class="form-select">
+                <option value="0">f(x) = 2x + 1</option>
+                <option value="1">f(x) = x³</option>
+                <option value="2">f(x) = √x  (x ≥ 0)</option>
+                <option value="3">f(x) = eˣ</option>
+                <option value="4">f(x) = (2x+1)/(x−3)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tampilkan:</label>
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="show-f" checked>
+                  <span class="checkbox-text">f(x)</span>
+                  <span class="checkbox-legend" style="background: var(--color-graph-f)"></span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="show-finv" checked>
+                  <span class="checkbox-text">f⁻¹(x)</span>
+                  <span class="checkbox-legend" style="background: var(--color-graph-finv)"></span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="show-mirror" checked>
+                  <span class="checkbox-text">y = x</span>
+                  <span class="checkbox-legend" style="background: var(--color-graph-mirror)"></span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="show-points">
+                  <span class="checkbox-text">Titik contoh</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Zoom:</label>
+              <div class="button-group">
+                <button class="btn btn--sm" id="btn-zoom-in">Zoom In</button>
+                <button class="btn btn--sm" id="btn-zoom-out">Zoom Out</button>
+                <button class="btn btn--sm btn--ghost" id="btn-zoom-reset">Reset</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="grafik-canvas-wrapper card">
+            <canvas id="grafik-canvas" width="560" height="460" aria-label="Grafik fungsi dan inversnya"></canvas>
+            <div class="grafik-legend">
+              <span class="legend-item"><span class="legend-color" style="background: var(--color-graph-f)"></span> f(x)</span>
+              <span class="legend-item"><span class="legend-color" style="background: var(--color-graph-finv)"></span> f⁻¹(x)</span>
+              <span class="legend-item"><span class="legend-color" style="background: var(--color-graph-mirror)"></span> y = x</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight highlight--info">
+          <span class="highlight__icon">💡</span>
+          <p><strong>Simetri terhadap y = x:</strong> Jika titik (a, b) ada pada grafik f(x), maka titik (b, a) ada pada grafik f⁻¹(x). Kedua titik ini selalu simetris terhadap garis y = x.</p>
+        </div>
+      </section>
+
+      <!-- Sifat Section -->
+      <section id="sifat" class="section" data-section="sifat">
+        <h2 class="section__title">Sifat-Sifat Fungsi Invers</h2>
+        
+        <div class="table-responsive">
+          <table class="table-sifat">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Sifat</th>
+                <th>Penjelasan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><span class="formula">f(f⁻¹(x)) = x</span></td>
+                <td>Komposisi fungsi dengan inversnya menghasilkan identitas</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><span class="formula">f⁻¹(f(x)) = x</span></td>
+                <td>Komposisi invers dengan fungsi asli juga identitas</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><span class="formula">(f⁻¹)⁻¹ = f</span></td>
+                <td>Invers dari invers adalah fungsi asli</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><span class="formula">Domain f⁻¹ = Range f</span></td>
+                <td>Domain invers sama dengan range fungsi asli</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><span class="formula">Range f⁻¹ = Domain f</span></td>
+                <td>Range invers sama dengan domain fungsi asli</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td><span class="formula">(a,b) ∈ f ⟺ (b,a) ∈ f⁻¹</span></td>
+                <td>Titik pada grafik f dan f⁻¹ saling tertukar koordinatnya</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Grafik f dan f⁻¹ simetris terhadap y = x</td>
+                <td>Pencerminan terhadap garis y = x</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>Jika f naik, maka f⁻¹ naik</td>
+                <td>Monoton naik dipertahankan</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>Jika f turun, maka f⁻¹ turun</td>
+                <td>Monoton turun dipertahankan</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card card--accent" style="margin-top: var(--space-lg)">
+          <h3 class="card__title">Contoh Penerapan Sifat</h3>
+          <p><strong>Diketahui:</strong> <span class="formula">f(x) = 3x − 5</span></p>
+          <p><strong>Maka:</strong> <span class="formula">f⁻¹(x) = (x + 5)/3</span></p>
+          
+          <p style="margin-top: var(--space-md)"><strong>Verifikasi sifat 1:</strong></p>
+          <div class="formula-block">
+            <code>f(f⁻¹(x)) = 3·((x+5)/3) − 5 = x + 5 − 5 = x</code> ✓
+          </div>
+          
+          <p><strong>Verifikasi sifat 2:</strong></p>
+          <div class="formula-block">
+            <code>f⁻¹(f(x)) = ((3x−5)+5)/3 = 3x/3 = x</code> ✓
+          </div>
+        </div>
+      </section>
+
+      <!-- Komposisi Section -->
+      <section id="komposisi" class="section" data-section="komposisi">
+        <h2 class="section__title">Invers Fungsi Komposisi</h2>
+        
+        <div class="card card--accent">
+          <h3 class="card__title">Teorema Penting</h3>
+          <p>Jika f dan g adalah fungsi-fungsi yang memiliki invers, maka:</p>
+          <div class="formula-block">
+            <code>(f ∘ g)⁻¹ = g⁻¹ ∘ f⁻¹</code>
+          </div>
+          <p class="text-muted">Perhatikan: Urutan dibalik!</p>
+        </div>
+
+        <h3 class="subsection__title">Analogi: Sepatu dan Kaos Kaki</h3>
+        <div class="card">
+          <p>Bayangkan proses memakai kaos kaki (g) lalu sepatu (f):</p>
+          <ul class="list-styled">
+            <li><strong>Memakai:</strong> Kaos kaki dulu (g), kemudian sepatu (f) → (f ∘ g)</li>
+            <li><strong>Melepas:</strong> Sepatu dulu (f⁻¹), kemudian kaos kaki (g⁻¹) → (g⁻¹ ∘ f⁻¹)</li>
+          </ul>
+          <div class="highlight highlight--success">
+            <span class="highlight__icon">✓</span>
+            <p>Untuk "membatalkan" komposisi, kita harus membalik urutan operasinya!</p>
+          </div>
+        </div>
+
+        <h3 class="subsection__title">Contoh Perhitungan</h3>
+        <div class="card">
+          <p><strong>Diketahui:</strong></p>
+          <ul class="list-unstyled">
+            <li><span class="formula">f(x) = 2x + 1</span></li>
+            <li><span class="formula">g(x) = x³</span></li>
+          </ul>
+          
+          <p style="margin-top: var(--space-md)"><strong>Langkah 1: Cari (f ∘ g)(x)</strong></p>
+          <div class="formula-block">
+            <code>(f ∘ g)(x) = f(g(x)) = f(x³) = 2x³ + 1</code>
+          </div>
+
+          <p><strong>Langkah 2: Cari (f ∘ g)⁻¹(x)</strong></p>
+          <div class="solution__steps">
+            <p>Misalkan <span class="formula">y = 2x³ + 1</span></p>
+            <p>Tukar: <span class="formula">x = 2y³ + 1</span></p>
+            <p>Selesaikan: <span class="formula">2y³ = x − 1</span></p>
+            <p><span class="formula">y³ = (x − 1)/2</span></p>
+            <p><span class="formula">y = ∛((x − 1)/2)</span></p>
+          </div>
+          <div class="formula-block">
+            <code>(f ∘ g)⁻¹(x) = ∛((x − 1)/2)</code>
+          </div>
+
+          <p><strong>Langkah 3: Verifikasi dengan g⁻¹ ∘ f⁻¹</strong></p>
+          <div class="solution__steps">
+            <p><span class="formula">f⁻¹(x) = (x − 1)/2</span></p>
+            <p><span class="formula">g⁻¹(x) = ∛x</span></p>
+            <p><span class="formula">(g⁻¹ ∘ f⁻¹)(x) = g⁻¹(f⁻¹(x)) = g⁻¹((x−1)/2) = ∛((x−1)/2)</span></p>
+          </div>
+          <div class="highlight highlight--success">
+            <span class="highlight__icon">✓</span>
+            <p>Terbukti: <span class="formula">(f ∘ g)⁻¹ = g⁻¹ ∘ f⁻¹</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fungsi Khusus Section -->
+      <section id="fungsi-khusus" class="section" data-section="fungsi-khusus">
+        <h2 class="section__title">Invers Fungsi-Fungsi Khusus</h2>
+        
+        <p class="section__intro">Berikut adalah daftar fungsi umum beserta inversnya:</p>
+
+        <div class="table-responsive">
+          <table class="table-fungsi">
+            <thead>
+              <tr>
+                <th>Fungsi f(x)</th>
+                <th>Invers f⁻¹(x)</th>
+                <th>Syarat/Domain</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="formula">ax + b</span></td>
+                <td><span class="formula">(x − b)/a</span></td>
+                <td><span class="formula">a ≠ 0</span></td>
+              </tr>
+              <tr>
+                <td><span class="formula">x²</span></td>
+                <td><span class="formula">√x</span></td>
+                <td><span class="formula">x ≥ 0</span></td>
+              </tr>
+              <tr>
+                <td><span class="formula">√x</span></td>
+                <td><span class="formula">x²</span></td>
+                <td><span class="formula">x ≥ 0</span></td>
+              </tr>
+              <tr>
+                <td><span class="formula">xⁿ</span></td>
+                <td><span class="formula">ⁿ√x</span></td>
+                <td><span class="formula">x > 0, n ≠ 0</span></td>
+              </tr>
+              <tr>
+                <td><span class="formula">eˣ</span></td>
+                <td><span class="formula">ln x</span></td>
+                <td><span class="formula">x > 0</span></td>
+              </tr>
+              <tr>
+                <td><span class="formula">ln x</span></td>
+                <td><span class="formula">eˣ</span></td>
+                <td><span class="formula">x > 0</span></td>
+              </tr>
+              <tr>
+                <td><span class="formula">aˣ</span></td>
+                <td><span class="formula">log_a x</span></td>
+                <td><span class="formula">a > 0, a ≠ 1, x > 0</span></td>
+              </tr>
+              <tr>
+                <td><span class="formula">log_a x</span></td>
+                <td><span class="formula">aˣ</span></td>
+                <td><span class="formula">a > 0, a ≠ 1, x > 0</span></td>
+              </tr>
+              <tr>
+                <td><span class="formula">sin x</span></td>
+                <td><span class="formula">arcsin x</span></td>
+                <td><span class="formula">−π/2 ≤ x ≤ π/2</span></td>
+              </tr>
+              <tr>
+                <td><span class="formula">cos x</span></td>
+                <td><span class="formula">arccos x</span></td>
+                <td><span class="formula">0 ≤ x ≤ π</span></td>
+              </tr>
+              <tr>
+                <td><span class="formula">tan x</span></td>
+                <td><span class="formula">arctan x</span></td>
+                <td><span class="formula">−π/2 < x < π/2</span></td>
+              </tr>
+              <tr>
+                <td><span class="formula">(ax+b)/(cx+d)</span></td>
+                <td><span class="formula">(dx−b)/(−cx+a)</span></td>
+                <td><span class="formula">ad − bc ≠ 0</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight highlight--warning" style="margin-top: var(--space-lg)">
+          <span class="highlight__icon">⚠️</span>
+          <p><strong>Penting:</strong> Fungsi trigonometri (sin, cos, tan) hanya memiliki invers jika domainnya dibatasi agar menjadi bijektif. Domain yang tercantum di tabel adalah domain standar yang membuat fungsi tersebut bijektif.</p>
+        </div>
+      </section>
+
+      <!-- Latihan Section -->
+      <section id="latihan" class="section" data-section="latihan">
+        <h2 class="section__title">Latihan Soal</h2>
+        
+        <div class="latihan-header">
+          <div class="score-card card">
+            <div class="score-card__ring">
+              <svg class="score-ring" width="100" height="100">
+                <circle class="score-ring__bg" cx="50" cy="50" r="40" fill="none" stroke-width="8"/>
+                <circle class="score-ring__fill" id="score-ring-fill" cx="50" cy="50" r="40" fill="none" stroke-width="8"/>
+              </svg>
+              <div class="score-ring__center">
+                <span class="score-ring__value" id="score-value">0</span>
+                <span class="score-ring__label">poin</span>
+              </div>
+            </div>
+            <div class="score-card__stats">
+              <div class="stat-item stat-item--success">
+                <span class="stat-label">Benar</span>
+                <span class="stat-value" id="count-benar">0</span>
+              </div>
+              <div class="stat-item stat-item--danger">
+                <span class="stat-label">Salah</span>
+                <span class="stat-value" id="count-salah">0</span>
+              </div>
+              <div class="stat-item stat-item--muted">
+                <span class="stat-label">Belum</span>
+                <span class="stat-value" id="count-belum">30</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="latihan-controls card">
+            <h3 class="card__title">Mode & Filter</h3>
+            
+            <div class="form-group">
+              <label class="form-label">Mode:</label>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="mode" value="urut" checked>
+                  <span>Urut</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="mode" value="acak">
+                  <span>Acak</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="mode" value="ujian">
+                  <span>Ujian</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="filter-topik" class="form-label">Topik:</label>
+              <select id="filter-topik" class="form-select">
+                <option value="semua">Semua Topik</option>
+                <option value="linear">Linear</option>
+                <option value="pecahan">Pecahan</option>
+                <option value="akar">Akar/Kuadrat</option>
+                <option value="komposisi">Komposisi</option>
+                <option value="khusus">Fungsi Khusus</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="filter-level" class="form-label">Tingkat:</label>
+              <select id="filter-level" class="form-select">
+                <option value="semua">Semua Tingkat</option>
+                <option value="mudah">Mudah</option>
+                <option value="sedang">Sedang</option>
+                <option value="sulit">Sulit</option>
+              </select>
+            </div>
+
+            <button class="btn btn--primary btn--block" id="btn-mulai-latihan">Mulai Latihan</button>
+          </div>
+        </div>
+
+        <div id="soal-container" class="soal-container">
+          <!-- Soal akan di-render di sini oleh JavaScript -->
+        </div>
+
+        <div id="ujian-timer" class="ujian-timer card" hidden>
+          <span class="ujian-timer__icon">⏱️</span>
+          <span class="ujian-timer__label">Sisa Waktu:</span>
+          <span class="ujian-timer__value" id="timer-value">20:00</span>
+        </div>
+      </section>
+
+      <!-- Rangkuman Section -->
+      <section id="rangkuman" class="section" data-section="rangkuman">
+        <h2 class="section__title">Rangkuman</h2>
+        
+        <div class="card card--accent">
+          <h3 class="card__title">Poin-Poin Penting Fungsi Invers</h3>
+          <ol class="summary-list">
+            <li>
+              <strong>Definisi:</strong> Fungsi invers f⁻¹ membalik pasangan (x,y) menjadi (y,x). Jika f(a)=b, maka f⁻¹(b)=a.
+            </li>
+            <li>
+              <strong>Syarat:</strong> Fungsi harus bijektif (injektif dan surjektif) untuk memiliki invers.
+            </li>
+            <li>
+              <strong>Cara Mencari:</strong> (1) Tulis y = f(x), (2) Tukar x dan y, (3) Selesaikan untuk y, (4) Ganti y dengan f⁻¹(x).
+            </li>
+            <li>
+              <strong>Sifat Utama:</strong> f(f⁻¹(x)) = x dan f⁻¹(f(x)) = x. Grafik f dan f⁻¹ simetris terhadap y = x.
+            </li>
+            <li>
+              <strong>Komposisi:</strong> (f ∘ g)⁻¹ = g⁻¹ ∘ f⁻¹. Urutan dibalik!
+            </li>
+            <li>
+              <strong>Domain & Range:</strong> Domain f⁻¹ = Range f, dan Range f⁻¹ = Domain f.
+            </li>
+          </ol>
+        </div>
+
+        <div class="rangkuman-actions">
+          <button class="btn btn--primary" id="btn-ulangi-latihan">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="margin-right: 8px">
+              <path d="M3 10a7 7 0 1 1 7 7v-3l-4 4 4 4v-3a9 9 0 1 0-9-9h2z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+            Ulangi Latihan Soal
+          </button>
+          <button class="btn btn--ghost" id="btn-reset-progress">Reset Semua Progress</button>
+        </div>
+
+        <div class="card" style="margin-top: var(--space-xl)">
+          <h3 class="card__title">Selamat! 🎉</h3>
+          <p>Anda telah menyelesaikan semua materi tentang Fungsi Invers. Terus berlatih dan eksplorasi konsep ini lebih dalam!</p>
+          <p class="text-muted">Website ini berjalan 100% di browser Anda. Semua progress tersimpan secara lokal.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <p class="footer__text">Dibuat dengan ❤️ untuk pembelajaran Matematika • Juni 2026</p>
+  </footer>
+
+  <!-- Modal Pembahasan -->
+  <div class="modal" id="modal-pembahasan" aria-modal="true" role="dialog" aria-labelledby="modal-title" hidden style="display: none;">
+    <div class="modal__backdrop" id="modal-backdrop"></div>
+    <div class="modal__panel">
+      <button class="modal__close" id="modal-close" aria-label="Tutup modal">×</button>
+      <h3 class="modal__title" id="modal-title">Pembahasan</h3>
+      <div class="modal__body" id="modal-content">
+        <!-- Content will be injected by JavaScript -->
+      </div>
+      <div class="modal__footer">
+        <button class="btn btn--primary" id="modal-close-btn">Mengerti</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+    <span class="toast__message" id="toast-message"></span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/utils.js?v=2.0.0"></script>
+  <script src="./js/storage.js?v=2.0.0"></script>
+  <script src="./js/navigation.js?v=2.0.0"></script>
+  <script src="./js/materi.js?v=2.0.0"></script>
+  <script src="./js/grafik.js?v=2.0.0"></script>
+  <script src="./js/soal.js?v=2.0.0"></script>
+  <script src="./js/main.js?v=2.0.0"></script>
+
+</body>
+</html>
